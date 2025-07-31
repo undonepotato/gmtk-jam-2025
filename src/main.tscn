@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cl71que6p8abm"]
+[gd_scene load_steps=6 format=3 uid="uid://cl71que6p8abm"]
 
 [ext_resource type="Script" uid="uid://xlppujve5tsf" path="res://src/debug/debug_velocity.gd" id="1_3cfgd"]
 [ext_resource type="PackedScene" uid="uid://jv0wowu6wne0" path="res://src/player/player.tscn" id="1_eewff"]
 [ext_resource type="Texture2D" uid="uid://cyoi7hp0rvukq" path="res://assets/debug/blank.png" id="1_gh0ne"]
 [ext_resource type="PackedScene" uid="uid://c1tyu6odw82nj" path="res://src/level_common/level_platform.tscn" id="2_5q4o7"]
+[ext_resource type="PackedScene" uid="uid://bambyypuwh7me" path="res://src/level_common/generic_movable.tscn" id="2_fyndt"]
 
 [node name="Main" type="Node2D"]
 
@@ -33,3 +34,6 @@ scale = Vector2(0.560002, 1)
 [node name="Player" parent="." instance=ExtResource("1_eewff")]
 unique_name_in_owner = true
 position = Vector2(102, 445)
+
+[node name="GenericMovable" parent="." instance=ExtResource("2_fyndt")]
+position = Vector2(536, 511)
