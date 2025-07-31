@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cl71que6p8abm"]
+
+[ext_resource type="Script" uid="uid://xlppujve5tsf" path="res://src/debug_velocity.gd" id="1_3cfgd"]
+[ext_resource type="PackedScene" uid="uid://jv0wowu6wne0" path="res://src/player.tscn" id="1_eewff"]
+[ext_resource type="Texture2D" uid="uid://cyoi7hp0rvukq" path="res://assets/blank.png" id="1_gh0ne"]
+[ext_resource type="PackedScene" uid="uid://c1tyu6odw82nj" path="res://src/level_platform.tscn" id="2_5q4o7"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.576471, 0.631373, 0.403922, 1)
+position = Vector2(546, 319)
+texture = ExtResource("1_gh0ne")
+
+[node name="DebugVelocity" type="Label" parent="."]
+offset_right = 142.0
+offset_bottom = 33.0
+text = "No velocity yet set"
+script = ExtResource("1_3cfgd")
+
+[node name="LevelPlatform1" parent="." instance=ExtResource("2_5q4o7")]
+position = Vector2(539, 571)
+scale = Vector2(10.44, 1)
+
+[node name="LevelPlatform2" parent="." instance=ExtResource("2_5q4o7")]
+position = Vector2(281, 481)
+scale = Vector2(1.12, 1)
+
+[node name="LevelPlatform3" parent="." instance=ExtResource("2_5q4o7")]
+position = Vector2(411, 392)
+scale = Vector2(0.560002, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_eewff")]
+unique_name_in_owner = true
+position = Vector2(102, 445)
