@@ -13,7 +13,7 @@ config_version=5
 config/name="THEME: LOOP"
 run/main_scene="uid://cl71que6p8abm"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://assets/icon.svg"
+config/icon="res://assets/debug/icon.svg"
 
 [editor]
 
