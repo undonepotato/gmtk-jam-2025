@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends Node2D
 
 class_name GenericMovable
 
@@ -18,20 +18,20 @@ func _reset_pos(state: PhysicsDirectBodyState2D) -> void:
 		state.transform.y = Vector2(0, 1)
 		state.transform.origin = reset_next_pos
 		state.linear_velocity = Vector2(0, 0)
-		
+
 		var pin_joint_1_pos = Vector2(
 			reset_next_pos.x
 			+ $CollisionShape2D.shape.size.x, 
 			reset_next_pos.y
 			- $CollisionShape2D.shape.size.y / 4
 		)
-		
+
 		var pin_joint_2_pos = Vector2(
 			pin_joint_1_pos.x,
 			reset_next_pos.y
 			+ $CollisionShape2D.shape.size.y / 4
 		)
-		
+
 		var pin_joint_1 = PinJoint2D.new()
 		var pin_joint_2 = PinJoint2D.new()
 		

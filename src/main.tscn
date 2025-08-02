@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cl71que6p8abm"]
+[gd_scene load_steps=6 format=3 uid="uid://cl71que6p8abm"]
 
 [ext_resource type="PackedScene" uid="uid://jv0wowu6wne0" path="res://src/player/player.tscn" id="1_eewff"]
 [ext_resource type="Texture2D" uid="uid://cyoi7hp0rvukq" path="res://assets/debug/blank.png" id="1_gh0ne"]
 [ext_resource type="PackedScene" uid="uid://c1tyu6odw82nj" path="res://src/level_common/level_platform.tscn" id="2_5q4o7"]
 [ext_resource type="PackedScene" uid="uid://bambyypuwh7me" path="res://src/level_common/generic_movable.tscn" id="2_fyndt"]
+[ext_resource type="PackedScene" uid="uid://de85ep2j0h4pi" path="res://src/level_common/string-body.tscn" id="5_fyndt"]
 
 [node name="Main" type="Node2D"]
 
@@ -36,10 +37,13 @@ scale = Vector2(1.51049, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_eewff")]
 unique_name_in_owner = true
-position = Vector2(443, 176)
+position = Vector2(-24, 450)
 
 [node name="GenericMovable" parent="." instance=ExtResource("2_fyndt")]
-position = Vector2(394, 401)
+position = Vector2(545, 505)
 
 [node name="GenericMovable2" parent="." instance=ExtResource("2_fyndt")]
 position = Vector2(324, 188)
+
+[node name="StringBody2D" parent="." instance=ExtResource("5_fyndt")]
+position = Vector2(201, 316)
