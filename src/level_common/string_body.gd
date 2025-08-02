@@ -1,5 +1,7 @@
 extends Node2D
 
+signal first_node_created(node: RigidBody2D)
+
 @export var string_node_radius: float
 @export var string_node_gap: float
 
@@ -13,7 +15,11 @@ var previous_string_node: RigidBody2D
 var next_x_pos = 0.0
 
 func _ready() -> void:
-	for i in range(15):
+	create_string_node()
+	var first_string_node = $StringNodes.get_child(0)
+	print(first_string_node.get_path())
+	first_node_created.emit(first_string_node)
+	for i in range(14):
 		create_string_node()
 
 func _process(delta: float) -> void:

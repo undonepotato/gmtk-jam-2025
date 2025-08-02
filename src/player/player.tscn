@@ -25,8 +25,9 @@ size = Vector2(40, 3.5)
 size = Vector2(3.5, 33)
 
 [node name="Player" type="CharacterBody2D"]
+process_physics_priority = 1
 collision_layer = 2
-collision_mask = 15
+collision_mask = 7
 script = ExtResource("1_gmfve")
 metadata/_edit_vertical_guides_ = [-61.0]
 metadata/_edit_horizontal_guides_ = [-16.0]
@@ -40,7 +41,6 @@ texture = ExtResource("2_gmfve")
 shape = SubResource("RectangleShape2D_gmfve")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.5, 1.5)
 
 [node name="DebugVelocity" type="Label" parent="."]
 offset_left = -380.0

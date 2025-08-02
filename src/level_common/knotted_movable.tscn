@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://3bl1wqksho0s"]
+
+[ext_resource type="Texture2D" uid="uid://cyoi7hp0rvukq" path="res://assets/debug/blank.png" id="1_m5yau"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_elath"]
+size = Vector2(76, 72)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0578201, 0.100445)
+texture = ExtResource("1_m5yau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_elath")
