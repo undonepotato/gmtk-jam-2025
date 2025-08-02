@@ -37,13 +37,10 @@ scale = Vector2(1.51049, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_eewff")]
 unique_name_in_owner = true
-position = Vector2(-24, 450)
+position = Vector2(392, 405)
 
 [node name="GenericMovable" parent="." instance=ExtResource("2_fyndt")]
-position = Vector2(545, 505)
-
-[node name="GenericMovable2" parent="." instance=ExtResource("2_fyndt")]
-position = Vector2(324, 188)
+position = Vector2(558, 503)
 
 [node name="StringBody2D" parent="." instance=ExtResource("5_fyndt")]
-position = Vector2(201, 316)
+position = Vector2(236, 291)

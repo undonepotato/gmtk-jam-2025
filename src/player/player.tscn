@@ -28,8 +28,8 @@ size = Vector2(3.5, 33)
 collision_layer = 2
 collision_mask = 15
 script = ExtResource("1_gmfve")
+metadata/_edit_vertical_guides_ = [-61.0]
 metadata/_edit_horizontal_guides_ = [-16.0]
-metadata/_edit_vertical_guides_ = [-59.0]
 
 [node name="Icon" type="Sprite2D" parent="."]
 modulate = Color(0.603922, 0.309804, 0.313726, 1)
@@ -62,6 +62,7 @@ script = ExtResource("4_244u8")
 [node name="KnotAreas" type="Node2D" parent="."]
 
 [node name="KnotAreaTop" type="Area2D" parent="KnotAreas"]
+visible = false
 modulate = Color(0.213333, 1, 0.2, 1)
 collision_layer = 2
 collision_mask = 4
@@ -80,6 +81,7 @@ position = Vector2(-22, 0.5)
 shape = SubResource("RectangleShape2D_244u8")
 
 [node name="KnotAreaBottom" type="Area2D" parent="KnotAreas"]
+visible = false
 modulate = Color(0.213333, 1, 0.2, 1)
 collision_layer = 2
 collision_mask = 4
@@ -98,7 +100,14 @@ position = Vector2(21.25, 0.5)
 shape = SubResource("RectangleShape2D_jiejy")
 
 [node name="KnottedObjects" type="Marker2D" parent="."]
-position = Vector2(-59, 0)
+position = Vector2(-9, 0)
+
+[node name="DebugColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -62.0
+offset_top = -17.0
+offset_right = -60.0
+offset_bottom = -15.0
 
 [connection signal="body_entered" from="KnotAreas/KnotAreaTop" to="." method="_on_knot_area_top_body_entered"]
 [connection signal="body_entered" from="KnotAreas/KnotAreaLeft" to="." method="_on_knot_area_left_body_entered"]
