@@ -1,20 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://bambyypuwh7me"]
 
-[ext_resource type="Script" uid="uid://b3tnoxvy0saqc" path="res://src/level_common/generic_movable.gd" id="1_3ohko"]
+[ext_resource type="Script" uid="uid://divahl882vqit" path="res://src/level_common/generic_movable.gd" id="1_3ohko"]
 [ext_resource type="Texture2D" uid="uid://cyoi7hp0rvukq" path="res://assets/debug/blank.png" id="1_64vxl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ohko"]
-size = Vector2(42, 40)
+size = Vector2(76, 72)
 
 [node name="GenericMovable" type="RigidBody2D"]
 modulate = Color(0.545098, 0.333333, 0.501961, 1)
 collision_layer = 4
-collision_mask = 7
+collision_mask = 15
+mass = 0.017
 script = ExtResource("1_3ohko")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0578201, 0.100445)
+texture = ExtResource("1_64vxl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3ohko")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.033, 0.056)
-texture = ExtResource("1_64vxl")

@@ -1,20 +1,106 @@
-[gd_scene load_steps=4 format=3 uid="uid://jv0wowu6wne0"]
+[gd_scene load_steps=11 format=3 uid="uid://jv0wowu6wne0"]
 
 [ext_resource type="Script" uid="uid://b8foj6pntcnhu" path="res://src/player/player.gd" id="1_gmfve"]
 [ext_resource type="Texture2D" uid="uid://cyoi7hp0rvukq" path="res://assets/debug/blank.png" id="2_gmfve"]
+[ext_resource type="Script" uid="uid://xlppujve5tsf" path="res://src/debug/debug_velocity.gd" id="3_mf2ua"]
+[ext_resource type="Script" uid="uid://bp2ktastjynuh" path="res://src/player/player_string_trail.gd" id="4_244u8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gmfve"]
-size = Vector2(42, 38)
+size = Vector2(42, 40)
+
+[sub_resource type="Curve" id="Curve_244u8"]
+_data = [Vector2(0.0283668, 0.460801), 0.0, 0.0, 0, 0, Vector2(0.359019, 0.729067), 0.0, 0.0, 0, 0, Vector2(0.61418, 0.47196), 0.0, 0.0, 0, 0, Vector2(0.868412, 0.7446), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mf2ua"]
+size = Vector2(40, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_244u8"]
+size = Vector2(4, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5f2sf"]
+size = Vector2(40, 3.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jiejy"]
+size = Vector2(3.5, 33)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 7
+collision_mask = 15
 script = ExtResource("1_gmfve")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_gmfve")
+metadata/_edit_horizontal_guides_ = [-16.0]
+metadata/_edit_vertical_guides_ = [-59.0]
 
 [node name="Icon" type="Sprite2D" parent="."]
 modulate = Color(0.603922, 0.309804, 0.313726, 1)
 scale = Vector2(0.03291, 0.055788)
 texture = ExtResource("2_gmfve")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gmfve")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+
+[node name="DebugVelocity" type="Label" parent="."]
+offset_left = -380.0
+offset_top = -215.0
+offset_right = -238.0
+offset_bottom = -192.0
+text = "No velocity yet set"
+script = ExtResource("3_mf2ua")
+
+[node name="PlayerStringTrail" type="Line2D" parent="."]
+width = 5.0
+width_curve = SubResource("Curve_244u8")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 16
+script = ExtResource("4_244u8")
+
+[node name="KnotAreas" type="Node2D" parent="."]
+
+[node name="KnotAreaTop" type="Area2D" parent="KnotAreas"]
+modulate = Color(0.213333, 1, 0.2, 1)
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KnotAreas/KnotAreaTop"]
+position = Vector2(0, -20)
+shape = SubResource("RectangleShape2D_mf2ua")
+
+[node name="KnotAreaLeft" type="Area2D" parent="KnotAreas"]
+modulate = Color(0.213333, 1, 0.2, 1)
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KnotAreas/KnotAreaLeft"]
+position = Vector2(-22, 0.5)
+shape = SubResource("RectangleShape2D_244u8")
+
+[node name="KnotAreaBottom" type="Area2D" parent="KnotAreas"]
+modulate = Color(0.213333, 1, 0.2, 1)
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KnotAreas/KnotAreaBottom"]
+position = Vector2(0, 20.25)
+shape = SubResource("RectangleShape2D_5f2sf")
+
+[node name="KnotAreaRight" type="Area2D" parent="KnotAreas"]
+modulate = Color(0.213333, 1, 0.2, 1)
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KnotAreas/KnotAreaRight"]
+position = Vector2(21.25, 0.5)
+shape = SubResource("RectangleShape2D_jiejy")
+
+[node name="KnottedObjects" type="Marker2D" parent="."]
+position = Vector2(-59, 0)
+
+[connection signal="body_entered" from="KnotAreas/KnotAreaTop" to="." method="_on_knot_area_top_body_entered"]
+[connection signal="body_entered" from="KnotAreas/KnotAreaLeft" to="." method="_on_knot_area_left_body_entered"]
+[connection signal="body_entered" from="KnotAreas/KnotAreaBottom" to="." method="_on_knot_area_bottom_body_entered"]
+[connection signal="body_entered" from="KnotAreas/KnotAreaRight" to="." method="_on_knot_area_right_body_entered"]

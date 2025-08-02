@@ -1,0 +1,109 @@
+[gd_scene load_steps=7 format=3 uid="uid://de85ep2j0h4pi"]
+
+[ext_resource type="Texture2D" uid="uid://be05dlvbbybgt" path="res://assets/level_common/icon.svg" id="1_oknq6"]
+[ext_resource type="Script" uid="uid://b035su7rc4gis" path="res://src/level_common/string_body.gd" id="1_s4lmq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_htaqr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_htaqr"]
+size = Vector2(7.75, 8)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_oknq6"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_s4lmq"]
+
+[node name="StringBody2D" type="RigidBody2D"]
+collision_layer = 32
+mass = 0.6
+gravity_scale = 0.2
+center_of_mass_mode = 1
+center_of_mass = Vector2(43, 0)
+script = ExtResource("1_s4lmq")
+distance_between_nodes = 35.0
+metadata/_edit_horizontal_guides_ = [-2.0, -21.0]
+metadata/_edit_vertical_guides_ = [10.0, -10.0]
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(40, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_oknq6")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_layer = 16
+collision_mask = 19
+mass = 0.2
+inertia = 15.99
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_htaqr")
+debug_color = Color(0.7, 0, 0.7, 0.419608)
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+position = Vector2(43, -23)
+collision_layer = 16
+collision_mask = 19
+mass = 0.2
+inertia = 15.99
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+shape = SubResource("CircleShape2D_htaqr")
+debug_color = Color(0, 0.7, 0.0933334, 0.419608)
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="."]
+position = Vector2(85, 0)
+collision_layer = 16
+collision_mask = 19
+mass = 0.2
+inertia = 15.99
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3"]
+shape = SubResource("CircleShape2D_htaqr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(40, 0)
+shape = SubResource("RectangleShape2D_htaqr")
+
+[node name="DampedSpringJoint2D2" type="DampedSpringJoint2D" parent="."]
+top_level = true
+position = Vector2(43, -24)
+rotation = -1.05884
+node_a = NodePath("../RigidBody2D2")
+node_b = NodePath("../RigidBody2D3")
+disable_collision = false
+length = 60.0
+rest_length = 35.0
+stiffness = 64.0
+damping = 4.52
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
+top_level = true
+rotation = -2.08497
+node_a = NodePath("../RigidBody2D")
+node_b = NodePath("../RigidBody2D2")
+disable_collision = false
+length = 60.0
+rest_length = 35.0
+stiffness = 64.0
+damping = 4.23
+
+[node name="BetweenNodes1" type="RigidBody2D" parent="."]
+top_level = true
+collision_layer = 32
+collision_mask = 35
+mass = 100.0
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BetweenNodes1"]
+shape = SubResource("SegmentShape2D_oknq6")
+debug_color = Color(0.0466666, 0, 0.7, 0.419608)
+
+[node name="BetweenNodes2" type="RigidBody2D" parent="."]
+top_level = true
+collision_layer = 32
+collision_mask = 35
+mass = 100.0
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BetweenNodes2"]
+shape = SubResource("SegmentShape2D_s4lmq")
+debug_color = Color(0.0816668, 0, 0.7, 0.419608)

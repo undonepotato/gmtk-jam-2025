@@ -10,15 +10,19 @@ config_version=5
 
 [application]
 
-config/name="THEME: LOOP"
+config/name="Unspooled"
 run/main_scene="uid://cl71que6p8abm"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://assets/debug/icon.svg"
+config/icon="res://assets/level_common/icon.svg"
 
 [editor]
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray()
 
 [input]
 
@@ -55,12 +59,23 @@ right={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":0,"axis_value":1.0,"script":null)
 ]
 }
+knot={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(162, 24),"global_position":Vector2(171, 72),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
 
 [layer_names]
 
 2d_physics/layer_1="platforms"
 2d_physics/layer_2="player"
-2d_physics/layer_3="movabless"
+2d_physics/layer_3="movables"
+2d_physics/layer_4="knotted"
+
+[physics]
+
+common/physics_jitter_fix=0.0
+common/physics_interpolation=true
 
 [rendering]
 
