@@ -29,8 +29,15 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("up") and is_on_floor():
 		velocity.y = jump_velocity
+		$Icon.play("jump")
 
 	var direction := Input.get_axis("left", "right")
+	if direction > 0:
+		$Icon.play("move_right")
+	elif direction < 0:
+		$Icon.play("move_left")
+	#else:
+		#$Icon.play("idle")
 	if direction:
 		velocity.x = direction * speed
 	else:
@@ -65,7 +72,7 @@ func _attach_object(body: RigidBody2D, direction: Vector2) -> void:
 	# TODO Add logic here for matching to more specific movables
 
 	var body_size: Vector2 = body.get_node("CollisionShape2D").shape.size
-	var player_size: Vector2 = $CollisionShape2D.shape.size
+	var player_size: Vector2 = $C.shape.size
 
 	match direction:
 		Vector2.LEFT:
@@ -99,7 +106,7 @@ func _attach_object(body: RigidBody2D, direction: Vector2) -> void:
 	new_collision.shape = RectangleShape2D.new()
 	new_collision.shape.size = body_size
 
-	add_child(new_collision)
+	add_child.call_deferred(new_collision)
 	add_child(new_collision_sprite)
 	body.free() # dangerous but who cares???
 	

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cl71que6p8abm"]
+[gd_scene load_steps=7 format=3 uid="uid://cl71que6p8abm"]
 
 [ext_resource type="PackedScene" uid="uid://jv0wowu6wne0" path="res://src/player/player.tscn" id="1_eewff"]
 [ext_resource type="Texture2D" uid="uid://cyoi7hp0rvukq" path="res://assets/debug/blank.png" id="1_gh0ne"]
 [ext_resource type="Script" uid="uid://bkv1lx0rlnvct" path="res://src/main.gd" id="1_kmhfv"]
 [ext_resource type="PackedScene" uid="uid://c1tyu6odw82nj" path="res://src/level_common/level_platform.tscn" id="2_5q4o7"]
 [ext_resource type="PackedScene" uid="uid://bambyypuwh7me" path="res://src/level_common/generic_movable.tscn" id="2_fyndt"]
+[ext_resource type="PackedScene" uid="uid://dv4a1owl6t4l4" path="res://src/level_common/rope.tscn" id="6_kmhfv"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_kmhfv")
@@ -20,27 +21,33 @@ position = Vector2(539, 571)
 scale = Vector2(17.84, 1)
 
 [node name="LevelPlatform2" parent="." instance=ExtResource("2_5q4o7")]
-position = Vector2(282, 471)
+position = Vector2(353, 392)
 scale = Vector2(1.12, 1)
 
 [node name="LevelPlatform3" parent="." instance=ExtResource("2_5q4o7")]
-position = Vector2(20, 129)
-scale = Vector2(0.560002, 1)
+position = Vector2(-55, 385)
+scale = Vector2(1.12, 1)
 
-[node name="LevelPlatform4" parent="." instance=ExtResource("2_5q4o7")]
-position = Vector2(-72, 293)
-scale = Vector2(0.560002, 1)
+[node name="LevelPlatform6" parent="." instance=ExtResource("2_5q4o7")]
+position = Vector2(206, 485)
+scale = Vector2(0.0821549, 0.46502)
+
+[node name="LevelPlatform7" parent="." instance=ExtResource("2_5q4o7")]
+position = Vector2(89, 484)
+scale = Vector2(0.0821549, 0.46502)
 
 [node name="LevelPlatform5" parent="." instance=ExtResource("2_5q4o7")]
-position = Vector2(776, 526)
-rotation = -0.269284
-scale = Vector2(1.51049, 1)
+position = Vector2(569, 486)
+rotation = -0.536135
+scale = Vector2(1.51049, 0.48)
 
 [node name="Player" parent="." instance=ExtResource("1_eewff")]
 unique_name_in_owner = true
-position = Vector2(-157, 510)
+position = Vector2(-1338, 506)
 
 [node name="GenericMovable" parent="." instance=ExtResource("2_fyndt")]
-position = Vector2(-17, 493)
+position = Vector2(-57, 297)
+
+[node name="Rope" parent="." instance=ExtResource("6_kmhfv")]
 
 [connection signal="object_detached" from="Player" to="." method="_on_player_object_detached"]

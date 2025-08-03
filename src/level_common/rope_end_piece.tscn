@@ -18,4 +18,3 @@ shape = SubResource("CircleShape2D_0ctcs")
 
 [node name="J" type="PinJoint2D" parent="C"]
 bias = 0.025
-softness = 0.05

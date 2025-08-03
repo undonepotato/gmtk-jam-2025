@@ -7,17 +7,28 @@ var Rope = preload("res://src/level_common/rope.tscn")
 var start_pos := Vector2.ZERO
 var end_pos := Vector2.ZERO
 
+func _ready() -> void:
+	$Rope.rope_start_piece = %Player
+	$Rope.spawn_rope(
+		%Player.global_position, 
+		Vector2(
+			%Player.global_position.x + 1000, 
+			%Player.global_position.y
+		)
+	)
+
 func _physics_process(delta: float) -> void:
 	start_pos = %Player.global_position
+	end_pos = Vector2(%Player.global_position.x + 500, %Player.global_position.y)
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.is_pressed():
-		if end_pos == Vector2.ZERO:
-			end_pos = get_global_mouse_position()
-			var rope = Rope.instantiate()
-			add_child(rope)
-			rope.spawn_rope(start_pos, end_pos)
-			end_pos = Vector2.ZERO
+#func _input(event: InputEvent) -> void:
+	#if event is InputEventMouseButton and event.is_pressed():
+		##if end_pos == Vector2.ZERO:
+			##end_pos = get_global_mouse_position()
+		#var rope = Rope.instantiate()
+		#add_child(rope)
+		#rope.spawn_rope(start_pos, end_pos)
+			##end_pos = Vector2.ZERO
 
 func _on_player_object_detached(global_pos: Vector2) -> void:
 	var inst = generic_movable.instantiate()

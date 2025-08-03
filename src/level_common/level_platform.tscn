@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1tyu6odw82nj"]
+[gd_scene load_steps=4 format=3 uid="uid://c1tyu6odw82nj"]
 
 [ext_resource type="Texture2D" uid="uid://cyoi7hp0rvukq" path="res://assets/debug/blank.png" id="1_ksglx"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eewff"]
-size = Vector2(232, 46)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r8c40"]
+radius = 24.0
+height = 232.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dgx3u"]
+radius = 4.0
 
 [node name="LevelPlatform" type="StaticBody2D"]
 collision_mask = 14
@@ -14,4 +18,21 @@ scale = Vector2(0.179369, 0.0667713)
 texture = ExtResource("1_ksglx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_eewff")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_r8c40")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(112, -20)
+shape = SubResource("CircleShape2D_dgx3u")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(112, 20)
+shape = SubResource("CircleShape2D_dgx3u")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(-112, -20)
+shape = SubResource("CircleShape2D_dgx3u")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2(-112, 20)
+shape = SubResource("CircleShape2D_dgx3u")

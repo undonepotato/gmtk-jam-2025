@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://g0x25tfej1qv"
-path="res://.godot/imported/Sewing Kit Background.png-8638ba475fd0413dc45c866fec5970ef.ctex"
+path="res://.godot/imported/Sewing Kit Background.png-4ee97a553f08f5bce2783eefc4c8a77b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/level_common/Sewing Kit Background.png"
-dest_files=["res://.godot/imported/Sewing Kit Background.png-8638ba475fd0413dc45c866fec5970ef.ctex"]
+source_file="res://assets/levels/Sewing Kit Background.png"
+dest_files=["res://.godot/imported/Sewing Kit Background.png-4ee97a553f08f5bce2783eefc4c8a77b.ctex"]
 
 [params]
 
