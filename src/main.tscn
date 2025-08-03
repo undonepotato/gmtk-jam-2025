@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cl71que6p8abm"]
+[gd_scene load_steps=6 format=3 uid="uid://cl71que6p8abm"]
 
 [ext_resource type="PackedScene" uid="uid://jv0wowu6wne0" path="res://src/player/player.tscn" id="1_eewff"]
 [ext_resource type="Texture2D" uid="uid://cyoi7hp0rvukq" path="res://assets/debug/blank.png" id="1_gh0ne"]
 [ext_resource type="Script" uid="uid://bkv1lx0rlnvct" path="res://src/main.gd" id="1_kmhfv"]
 [ext_resource type="PackedScene" uid="uid://c1tyu6odw82nj" path="res://src/level_common/level_platform.tscn" id="2_5q4o7"]
 [ext_resource type="PackedScene" uid="uid://bambyypuwh7me" path="res://src/level_common/generic_movable.tscn" id="2_fyndt"]
-[ext_resource type="PackedScene" uid="uid://de85ep2j0h4pi" path="res://src/level_common/string-body.tscn" id="5_fyndt"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_kmhfv")
@@ -25,11 +24,11 @@ position = Vector2(282, 471)
 scale = Vector2(1.12, 1)
 
 [node name="LevelPlatform3" parent="." instance=ExtResource("2_5q4o7")]
-position = Vector2(371, 294)
+position = Vector2(20, 129)
 scale = Vector2(0.560002, 1)
 
 [node name="LevelPlatform4" parent="." instance=ExtResource("2_5q4o7")]
-position = Vector2(273, 383)
+position = Vector2(-72, 293)
 scale = Vector2(0.560002, 1)
 
 [node name="LevelPlatform5" parent="." instance=ExtResource("2_5q4o7")]
@@ -44,16 +43,4 @@ position = Vector2(-157, 510)
 [node name="GenericMovable" parent="." instance=ExtResource("2_fyndt")]
 position = Vector2(-17, 493)
 
-[node name="StringBody2D" parent="." instance=ExtResource("5_fyndt")]
-position = Vector2(151, 303)
-
-[node name="PinJoint2D" type="PinJoint2D" parent="."]
-node_a = NodePath("../Player")
-
-[node name="PinJoint2D2" type="PinJoint2D" parent="."]
-node_a = NodePath("../Player")
-
 [connection signal="object_detached" from="Player" to="." method="_on_player_object_detached"]
-[connection signal="first_node_created" from="StringBody2D" to="." method="_on_string_body_2d_first_node_created"]
-
-[editable path="StringBody2D"]

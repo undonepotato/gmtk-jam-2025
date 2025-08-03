@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4ltbaungxjdc"]
+
+[ext_resource type="Texture2D" uid="uid://be05dlvbbybgt" path="res://assets/level_common/icon.svg" id="1_veidg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0ctcs"]
+radius = 2.0
+
+[node name="RopeEndPiece" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 13
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_veidg")
+
+[node name="C" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0ctcs")
+
+[node name="J" type="PinJoint2D" parent="C"]
+bias = 0.025
+softness = 0.05

@@ -19,7 +19,7 @@ func _ready() -> void:
 	var first_string_node = $StringNodes.get_child(0)
 	print(first_string_node.get_path())
 	first_node_created.emit(first_string_node)
-	for i in range(14):
+	for i in range(30):
 		create_string_node()
 
 func _process(delta: float) -> void:
@@ -37,8 +37,10 @@ func create_string_node() -> void:
 	
 	new_string_node.set_collision_mask_value(1, true)
 	new_string_node.set_collision_mask_value(2, true)
+	new_string_node.set_collision_mask_value(3, true)
 	new_string_node.set_collision_mask_value(5, true)
-	# TODO make it interact with movables as well
+	
+	new_string_node.gravity_scale = 0.2
 	
 	new_string_collision = CollisionShape2D.new()
 	new_string_collision.shape = CircleShape2D.new()
